@@ -12,7 +12,7 @@
       font-family: 'Arial', sans-serif;
       background-color: #EB8B6C;
       background-image: url('https://i.postimg.cc/9Mrgmg2T/file-000000000060622f8bef0c196c8e4ade.png');
-      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
       background-attachment: fixed;
@@ -21,10 +21,41 @@
       color: white;
     }
 
+    .interrogacion {
+      font-size: 120px;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.7);
+      text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+      animation: flotar 3s ease-in-out infinite;
+      margin-bottom: 30px;
+    }
+
+    @keyframes flotar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
     h1 {
       font-size: 42px;
       margin-bottom: 10px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+      animation: aparecer 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes aparecer {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
     }
 
     p {
@@ -60,9 +91,20 @@
       font-style: italic;
       font-size: 22px;
     }
+
+    .oculto {
+      opacity: 0;
+      animation: aparecer 4s ease forwards;
+      animation-delay: 5s;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #fff8;
+    }
   </style>
 </head>
 <body>
+
+  <div class="interrogacion">?</div>
 
   <h1>Algo se está cocinando...</h1>
   <p>Falta muy poco para que lo descubras</p>
@@ -77,9 +119,10 @@
     Lo que viene... ¡va a dar de qué hablar!
   </div>
 
+  <p class="oculto">¿Estás realmente list@ para lo que viene?</p>
+
   <script>
     const fechaObjetivo = new Date('2025-05-27T00:00:00');
-
     const cuenta = document.getElementById("cuenta");
 
     function actualizarCuentaRegresiva() {
