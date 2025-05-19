@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Algo se está cocinando...</title>
+
+  <!-- Íconos Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #EB8B6C;
+      background-image: url('https://i.postimg.cc/9Mrgmg2T/file-000000000060622f8bef0c196c8e4ade.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      text-align: center;
+      padding: 50px;
+      color: white;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+
+    p {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #E1306C;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 18px;
+      margin-top: 20px;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #c0255d;
+      transform: scale(1.05);
+    }
+
+    #cuenta {
+      font-size: 32px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .teaser {
+      margin-top: 60px;
+      font-style: italic;
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Algo se está cocinando...</h1>
+  <p>Falta muy poco para que lo descubras</p>
+
+  <div id="cuenta"></div>
+
+  <a href="https://www.instagram.com/c_pronto_s?igsh=MTZwMGI2eGp5bXlibA==" target="_blank" class="btn">
+    <i class="fab fa-instagram" style="margin-right: 8px;"></i> Sígueme en Instagram
+  </a>
+
+  <div class="teaser">
+    Lo que viene... ¡va a dar de qué hablar!
+  </div>
+
+  <script>
+    const fechaObjetivo = new Date('2025-05-27T00:00:00');
+
+    const cuenta = document.getElementById("cuenta");
+
+    function actualizarCuentaRegresiva() {
+      const ahora = new Date();
+      const diferencia = fechaObjetivo - ahora;
+
+      if (diferencia <= 0) {
+        cuenta.textContent = "¡Es hoy! ¡Ya llegó el momento!";
+        clearInterval(intervalo);
+        return;
+      }
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+      const segundos = Math.floor((diferencia / 1000) % 60);
+
+      cuenta.textContent = `${dias} días, ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    const intervalo = setInterval(actualizarCuentaRegresiva, 1000);
+    actualizarCuentaRegresiva();
+  </script>
+
+</body>
+</html>
