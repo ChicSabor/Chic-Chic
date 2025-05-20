@@ -29,6 +29,21 @@
       animation: flotar 3s ease-in-out infinite;
       margin-bottom: 30px;
     }
+    .meme-contenedor {
+    margin-top: 60px;
+    animation: aparecerDesdeAbajo 2s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes aparecerDesdeAbajo {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @keyframes flotar {
       0%, 100% {
@@ -146,6 +161,9 @@
     const intervalo = setInterval(actualizarCuentaRegresiva, 1000);
     actualizarCuentaRegresiva();
   </script>
-
+<div class="meme-contenedor">
+  <img src="https://pin.it/2Kr7hn507" alt="Meme divertido"
+       style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+</div>
 </body>
 </html> 
